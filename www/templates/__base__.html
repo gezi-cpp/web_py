@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %} ? {% endblock %} -My Awesome Python Webapp</title>
+        <meta charset="utf-8">
+        {% block meta %}<!-- block meta -->{% endblock%}
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="/static/css/uikit.min.css" />
+        <script src="/static/js/uikit.min.js"></script>
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/uikit-icons.min.js"></script>
+        <script src="/static/js/vue.min.js"></script>
+        <script src="/static/js/sha1.min.js"></script>
+        <script src="/static/js/awesome.js"></script>
+        {% block beforehead %}<!-- before head -->{% endblock%}
+    </head>
+    <body>
+        <div uk-sticky="sel-target: .uk-navbar-container;cls-active:uk-navbar-sticky">
+            <nav class="uk-navbar-container" uk-navbar style="height:50px;">
+                <div class="uk-navbar-center">
+                    <a href="/" class="uk-navbar-brand">醉酒的蝴蝶</a>
+                    <ul class="uk-navbar-nav">
+                        <li data-url="blogs"><a href="/"><i uk-icon="home"></i> 博客</a></li>
+                        <li><a target="_blank" href="#"><i uk-icon="file-text"></i> 教程</a></li>
+                        <li><a target="_blank" href="#"><i uk-icon="code"></i> 源码</a></li>
+                    </ul>               
+                </div>
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav">
+                        {% if __user__ %}
+                            <!--div class="uk-navbar-right"-->
+                                <li class="uk-parent">
+                                    <a href="#0"><i uk-icon="user"></i>{{__user__.name}}</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav" style="height:5px;">
+                                            <li><a href="/signout"><i uk-icon="sign-out"></i> 退出</a></li>
+                                            <li><a href="/manage/blogs/create"><i uk-icon="pencil"></i> 新建博客</a></li>
+                                            <li><a href="/manage/blogs"><i uk-icon="pencil"></i> 博客列表</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            <!--/div-->                            
+                        {% else %}
+                            <li><a target="_blank" href="/signin"><i uk-icon="sign-in"></i> 登录</a></li>
+                            <li><a target="_blank" href="/register"><i uk-icon="pencil"></i> 注册</a></li>
+                        {% endif %}
+                    </ul>
+                </div>               
+            </nav>
+        </div>
+        <!--以上部分是顶部导航栏-->
+        <div class="uk-container uk-container-center">
+            <div class="uk-grid">
+                <!--正文-->
+                {% block content %}
+                {% endblock %}
+                <!--正文结束-->
+            </div>
+        </div>
+        
+        <div class="uk-margin-large-top" style="background-color:#eee;border-top:1px solid#ccc;height:200px;">
+            <div class="uk-container uk-container-center uk-text-center">
+                <div class="uk-panel uk-margin-top uk-margin-bottom">
+                    <p>
+                        <a target="_blank" href="http://getuikit.com" class="uk-icon-button" uk-icon="uikit"></a>
+                        <a target="_blank" href="http://github.com" class="uk-icon-button" uk-icon="github"></a>
+                        <a target="_blank" href="http://google.com" class="uk-icon-button" uk-icon="google"></a>
+                        <a target="_blank" href="http://twitter.com" class="uk-icon-button" uk-icon="twitter"></a>
+                    </p>
+                    <p>Powered by <a href="#">黄小华</a>.Copyright &copy; 2021.[<a href="/manage/" target="_blank">Manage</a>]</p>
+                    <p><a href="http://www.ahua.com/" target="_blank">www.ahua.com</a>. All rights reserved.</p>
+                    <a target="_blank" href="#"><i uk-icon="html5" style="fnot-size:64px; color:#444;"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
