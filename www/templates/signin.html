@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html class="uk-height-1-1">
-<head>
-    <meta charset="utf-8" />
-    <title>登录</title>
-    <link rel="stylesheet" href="/static/css/uikit.min.css" />
-    <script src="/static/js/uikit.min.js"></script>
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/uikit-icons.min.js"></script>
-    <script src="/static/js/vue.min.js"></script>
-    <script src="/static/js/sha1.min.js"></script>
-    <script src="/static/js/awesome.js"></script>
-    
-    <script>
+{% extends '__base__.html' %}
+
+{% block title %}登录{% endblock %}
+
+{% block beforehead %}
+
+<script>
 $(function(){
     var vmAuth=new Vue({
         el:'#vm',
@@ -38,32 +31,32 @@ $(function(){
         }
     });
 });   
-    </script>
-</head>
-<body class="uk-height-1-1">
-    <div class="uk-vertical-align uk-text-center uk-height-1-1">
-        <div class="uk-vertical-align-middle" style="width:320px">
-            <p><a href="/" class="uk-icon-button" uk-icon="sign-in"></a> <a href="/">登录-Awesome Python Webapp</a></p>
-            <form id="vm" v-on="submit:submit" class="uk-panel uk-panel-box uk-form">
-                <div class="uk-alert uk-alert-danger uk-hidden"></div>
-                <div class="uk-form-row">
-                    <!--div class="uk-form-icon uk-width-1-1"-->
-                        <i uk-icon="envelope-o"></i>
-                        <input v-model="email" name="email" type="text" placeholder="电子邮件" maxlength="50" class="uk-width-1-1 uk-form-large">
-                    <!--/div-->
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="uk-align-center uk-text-center uk-height-1-1">
+        <div class="uk-align-center" style="width:320px">
+            <p><h1>欢迎登录！</h1></p>
+            <form id="vm" v-on="submit:submit" class="uk-form">
+            <fieldset class="uk-fieldset">
+                <div class="uk-alert-danger uk-hidden" uk-alert></div>
+                <div class="uk-inline uk-margin">                   
+                    <span uk-icon="mail" class="uk-form-icon"></span>
+                        <input v-model="email" name="email" type="text" placeholder="电子邮件" maxlength="50" class="uk-input uk-width-1-1 uk-form-large">
+                </div>                    
+                <div class="uk-inline">
+                    <span uk-icon="lock" class="uk-form-icon"></span>
+                    <input v-model="passwd" name="passwd" type="password" placeholder="密码" maxlength="50" class="uk-input uk-width-1-1 uk-form-large">
+                </div> 
+                <div class="uk-margin">                                                        
+                    <button type="submit" class="uk-width-2-5 uk-button uk-button-primary uk-button-large" style="font-size:20px">登录</button>
                 </div>
-                <div class="uk-form-row">
-                    <div class="uk-form-icon uk-width-1-1">
-                        <i uk-icon="lock"></i>
-                    </div>                        
-                        <input v-model="passwd" name="passwd" type="password" placeholder="密码" maxlength="50" class="uk-width-1-1 uk-form-large">
-                    <!--/div-->
-                </div>                                            
-                <div class="uk-form-row">
-                    <button type="submit" class="uk-width-1-1 uk-button uk-button-primary uk-button-large"><i uk-icon="signin" ></i>登录</button>
-                </div>
+            </fieldset>    
             </form>
         </div>
-    </div>
-</body>
-</html>                                                                                                            
+    </div>      
+
+{% endblock %}                                                                                                       
