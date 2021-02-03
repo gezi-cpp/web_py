@@ -57,36 +57,38 @@ $(function(){
 
 {% block content %}
     
-    <div class="uk-width-2-3">
-        <h1>欢迎注册！</h1>
+    <div class="uk-width-2-3 uk-align-center" style="width:500px">
+        <div class="uk-text-center">
+            <p><h1>欢迎注册！</h1></p>
+        </div>            
         <form id="vm" v-on="submit:submit" class="uk-form uk-form-stacked">
             <div class="uk-alert al-alert-danger uk-hidden"></div>
             <div class="uk-form-row">
                 <label class="uk-form-label">名字：</label>
                 <div class="uk-form-controls">
-                    <input v-model="name" type="text" maxlength="50" placeholder="张三"uk-width-1-1">
+                    <input v-model="name" type="text" maxlength="50" placeholder="张三" class="uk-input uk-width-1-1 uk-form-middle">
                 </div>
             </div>
             <div class="uk-form-row">
                 <label class="uk-form-label">电子邮件：</label>
                 <div class="uk-form-controls">
-                    <input v-model="email" type="text" maxlength="50" placeholder="your-name@example.com" class="uk-width-1-1">
+                    <input v-model="email" type="text" maxlength="50" placeholder="your-name@example.com" class="uk-input uk-width-1-1 uk-form-middle">
                 </div>
             </div>
             <div class="uk-form-row">
                 <label class="uk-form-label">输入密码：</label>
                 <div class="uk-form-controls">
-                    <input v-model="password1" type="password" maxlength="50" placeholder="输入密码" class="uk-width-1-1">
+                    <input v-model="password1" type="password" maxlength="50" placeholder="输入密码" class="uk-input uk-width-1-1 uk-form-middle">
                 </div>
             </div>
             <div class="uk-form-row">
                 <label class="uk-form-label">重复密码：</label>
                 <div class="uk-form-controls">
-                    <input v-model="password2" type="password" maxlength="50" placeholder="重复密码" class="uk-width-1-1">
+                    <input v-model="password2" type="password" maxlength="50" placeholder="重复密码" class="uk-input uk-width-1-1 uk-form-middle">
                 </div>
             </div>     
-            <div class="uk-form-row">
-                <button type="submit" class="uk-button button-primary"><i uk-icon="user"></i> 注册</button>
+            <div class="uk-form-row uk-margin uk-text-center">
+                <button type="submit" class="uk-button uk-button-primary"><i uk-icon="pencil"></i> 注册</button>
             </div>
         </form>
     </div>
