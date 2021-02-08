@@ -136,9 +136,9 @@ async def init():
 #    app.router.add_route('GET','/',index) #注册URL处理函数：处理Home页面
     runner=web.AppRunner(app)
     await runner.setup()
-    site=web.TCPSite(runner,'192.168.1.8',9000)#创建TCP服务
+    site=web.TCPSite(runner,'192.168.1.8',9001)#创建TCP服务
     await site.start()
-    logging.info('server started at http://192.168.1.8:9000...')
+    logging.info('server started at http://192.168.1.8:9001...')
     return site
     
 #获取eventloop(消息循环):主线程不断重复“读取消息-处理消息”这一过程    
